@@ -240,6 +240,7 @@
             class="nav-cta"
             download="proximity.apk"
             aria-label="Download Proximity APK"
+            data-trigger-ad="download"
           >
             Download APK
           </a>
@@ -289,6 +290,7 @@
               class="animated-button animated-primary"
               download="proximity.apk"
               aria-label="Download Proximity APK"
+              data-trigger-ad="download"
             >
               <svg viewBox="0 0 24 24" class="arr-2" aria-hidden="true">
                 <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.7781L10.8076 18.3639L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -305,6 +307,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="animated-button animated-secondary"
+              data-trigger-ad="github"
             >
               <svg viewBox="0 0 24 24" class="arr-2" aria-hidden="true">
                 <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.7781L10.8076 18.3639L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -1180,6 +1183,7 @@
               class="btn-primary"
               download="proximity.apk"
               aria-label="Download Proximity APK"
+              data-trigger-ad="download"
             >
               Download APK
             </a>
@@ -1188,6 +1192,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="btn-secondary"
+              data-trigger-ad="github"
             >
               View on GitHub
             </a>
@@ -1212,6 +1217,59 @@
         </div>
       </div>
     </footer>
+
+    <!-- Action Ad Modal (Sponsored Download & GitHub Preview) -->
+    <dialog id="action-ad-modal" class="waitlist-modal action-ad-modal" aria-labelledby="action-ad-title">
+      <div class="modal-card glass-panel action-ad-card">
+        <div class="modal-head">
+          <div class="modal-title-group">
+            <div class="action-ad-icon-wrap" id="action-ad-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <div>
+              <h3 id="action-ad-title">Downloading Proximity APK</h3>
+              <p class="modal-sub" id="action-ad-subtitle">Build v1.0.0 &middot; 15.3 MB &middot; Android 10+</p>
+            </div>
+          </div>
+          <button type="button" class="modal-close" id="action-ad-close" aria-label="Close dialog">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="action-ad-body">
+          <div class="action-ad-status-box" id="action-ad-status">
+            <p id="action-ad-message">
+              Your download has started! Check your browser's download manager.
+            </p>
+            <p class="action-ad-fallback">
+              Did not start? <a href="https://github.com/ANSHUMAN23-maker/proximity/raw/main/proximity.apk" download="proximity.apk" id="action-ad-fallback-link">Click here to download directly</a>.
+            </p>
+          </div>
+
+          <!-- Adsterra Native Banner Slot -->
+          <div class="adsterra-banner-wrapper">
+            <div class="adsterra-banner-header">
+              <span class="adsterra-badge">Sponsored Recommendation</span>
+            </div>
+            <div class="adsterra-container-host">
+              <div id="container-0b4df5b173810fed2c353725140669a7"></div>
+            </div>
+          </div>
+
+          <div class="modal-success-actions">
+            <button type="button" class="btn-primary action-ad-done" id="action-ad-done">Done</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
+    <!-- Adsterra Native Banner Script -->
+    <script async="async" data-cfasync="false" src="https://bellnewyork.org/21/0b4df5b173810fed2c353725140669a7"></script>
 
     <!-- Early Access / Beta Waitlist Modal -->
     <dialog id="waitlist-modal" class="waitlist-modal" aria-labelledby="modal-title">
