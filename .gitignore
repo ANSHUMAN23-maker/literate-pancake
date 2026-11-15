@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Production build artifacts (compiled & deployed via GitHub Actions / gh-pages)
+dist/
+
+# Logs and environment
+*.log
+.DS_Store
+Thumbs.db
+.env.local
+.env.*.local
