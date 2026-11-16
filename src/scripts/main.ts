@@ -72,7 +72,8 @@ function initCoverScrollFade(): void {
   const update = () => {
     rafId = 0;
     const vh = Math.max(480, window.innerHeight || 800);
-    const fadeDistance = vh * 0.65;
+    const isMobile = window.innerWidth <= 960;
+    const fadeDistance = isMobile ? vh * 0.48 : vh * 0.65;
     const p = Math.max(0, Math.min(1, window.scrollY / fadeDistance));
     coverStage.style.setProperty('--cover-p', p.toFixed(3));
     coverStage.classList.toggle('is-faded', p >= 0.94);
@@ -106,6 +107,8 @@ function initThemeToggle(): void {
         theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
       );
     });
+    const adIframe = document.getElementById('adsterra-iframe') as HTMLIFrameElement | null;
+    adIframe?.contentWindow?.postMessage({ theme }, '*');
   };
 
   const initial = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
@@ -537,6 +540,9 @@ function initActionAdModal(): void {
         try {
           if (!modal.open) {
             modal.showModal();
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const adIframe = document.getElementById('adsterra-iframe') as HTMLIFrameElement | null;
+            adIframe?.contentWindow?.postMessage({ theme: currentTheme }, '*');
             window.dispatchEvent(new Event('resize'));
           }
         } catch {
@@ -567,6 +573,9 @@ function initActionAdModal(): void {
         try {
           if (!modal.open) {
             modal.showModal();
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const adIframe = document.getElementById('adsterra-iframe') as HTMLIFrameElement | null;
+            adIframe?.contentWindow?.postMessage({ theme: currentTheme }, '*');
             window.dispatchEvent(new Event('resize'));
           }
         } catch {

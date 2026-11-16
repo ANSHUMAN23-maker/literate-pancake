@@ -139,7 +139,7 @@ export function initScrollStages(reducedMotion: boolean): void {
       return r.top + window.scrollY + r.height * 0.5;
     });
 
-    const anchorDocY = window.scrollY + vh * 0.48;
+    const anchorDocY = window.scrollY + (isDesktop ? vh * 0.48 : vh * 0.68);
     const firstCenter = beatCenters[0] ?? 0;
     const lastCenter = beatCenters[beatCenters.length - 1] ?? firstCenter + 1;
     const span = Math.max(1, lastCenter - firstCenter);
@@ -161,6 +161,25 @@ export function initScrollStages(reducedMotion: boolean): void {
       }
     }
 
+    // On mobile, fade out cards that scroll up into the sticky phone viewport zone
+    if (!isDesktop) {
+      beatCards.forEach((card) => {
+        const r = card.getBoundingClientRect();
+        if (r.bottom < 390) {
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.opacity = '';
+          card.style.pointerEvents = '';
+        }
+      });
+    } else {
+      beatCards.forEach((card) => {
+        card.style.opacity = '';
+        card.style.pointerEvents = '';
+      });
+    }
+
     // 4. Desktop Left <-> Right smooth glide between beats + Mobile 3D choreography
     if (stageInner) {
       if (!isDesktop || beatCenters.length < 2) {
@@ -169,10 +188,10 @@ export function initScrollStages(reducedMotion: boolean): void {
         if (storyPhone && beatCenters.length >= 2) {
           // Mobile-specific 3D rotation & pitch choreography across beats
           const mobileKeyframes = [
-            { ry: 0, rx: 2.5 },    // Beat 0: Home console (front & center)
-            { ry: 14, rx: 1.5 },   // Beat 1: Setup & SIM (turned 14deg to reveal bank/SIM picker)
-            { ry: -12, rx: 4.8 },  // Beat 2: Scanner (tilted forward & angled left)
-            { ry: 0, rx: 0.5 }     // Beat 3: Payment result (upright celebratory)
+            { ry: 0, rx: 2.0 },    // Beat 0: Home console (front & center)
+            { ry: 16, rx: 1.0 },   // Beat 1: Setup & SIM (turned 16deg to reveal bank/SIM picker)
+            { ry: -14, rx: 5.0 },  // Beat 2: Scanner (tilted forward & angled left like scanning)
+            { ry: 0, rx: 0.0 }     // Beat 3: Payment result (upright celebratory)
           ];
 
           let targetRy = 0;
