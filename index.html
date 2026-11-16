@@ -353,7 +353,7 @@
                       </svg>
 
                       <div class="stage-screen-stack">
-                        <!-- SCREEN 0: REAL MainActivity.kt (MainScreen + GreetingCard + 3 Tiles + Rewards + FloatingBottomNavBar) -->
+                        <!-- SCREEN 0: Main Screen Console (Greeting Card + Action Tiles + Rewards + Floating Nav) -->
                         <div class="stage-screen is-active" data-screen="0">
                           <div class="app-main-scroll">
                             <div class="app-top-row">
@@ -368,7 +368,7 @@
                               </div>
                             </div>
 
-                            <!-- GreetingCard from MainActivity.kt L391-482 -->
+                            <!-- Greeting Card Surface -->
                             <div class="app-greeting-card">
                               <span class="greeting-orb" aria-hidden="true"></span>
                               <div class="greeting-bank-row">
@@ -416,7 +416,7 @@
                               </div>
                             </div>
 
-                            <!-- RewardsSectionCard from MainActivity.kt L697-745 -->
+                            <!-- Rewards Section Card -->
                             <div class="app-rewards-glass">
                               <span class="rewards-icon-badge" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -426,7 +426,7 @@
                               <span class="rewards-label">Rewards &amp; Cashback</span>
                             </div>
 
-                            <!-- FloatingBottomNavBar from FloatingBottomNavBar.kt -->
+                            <!-- Floating Bottom Navigation -->
                             <div class="app-floating-nav">
                               <div class="app-nav-puck" aria-hidden="true"></div>
                               <div class="app-nav-tab is-current">
@@ -452,7 +452,7 @@
                           </div>
                         </div>
 
-                        <!-- SCREEN 1: REAL SetupActivity (Progress line + Select your SIM) -->
+                        <!-- SCREEN 1: Setup Flow (Progress line + Select your SIM) -->
                         <div class="stage-screen" data-screen="1">
                           <div class="app-setup-wrap">
                             <div class="setup-progress-track">
@@ -501,7 +501,7 @@
                           </div>
                         </div>
 
-                        <!-- SCREEN 2: REAL QRScannerActivity (Dark Camera Scrim + Teal Laser + Flash & Gallery) -->
+                        <!-- SCREEN 2: Universal Scanner (Dark Camera Scrim + Teal Laser + Flash & Gallery) -->
                         <div class="stage-screen" data-screen="2">
                           <div class="qr-overlay-screen">
                             <div class="qr-top-bar">
@@ -542,7 +542,7 @@
                           </div>
                         </div>
 
-                        <!-- SCREEN 3: REAL PaymentResultActivity (Solid Check + Payment Successful + ₹48 + Receipt Surface) -->
+                        <!-- SCREEN 3: Settlement Receipt (Solid Check + Payment Successful + ₹48 + Receipt Surface) -->
                         <div class="stage-screen" data-screen="3">
                           <div class="app-result-screen">
                             <div class="result-circle-check" aria-hidden="true">
@@ -605,7 +605,7 @@
                   Your bank greeting card sits over three Liquid-Glass action tiles (Scan QR, Pay
                   Contact, Recharge), Rewards &amp; Cashback, and a draggable bottom pill bar.
                 </p>
-                <span class="beat-meta-line">MainActivity.kt &middot; FloatingBottomNavBar</span>
+                <span class="beat-meta-line">Offline Command Console &middot; Floating Navigation</span>
               </article>
 
               <article class="story-beat" data-story-beat="1" data-align="right">
@@ -618,7 +618,7 @@
                   Pick your UPI-linked bank and active SIM slot in Setup. Proximity never asks
                   for IFSC codes, full account numbers, or wallet top-ups before activating rails.
                 </p>
-                <span class="beat-meta-line">SetupActivity.kt &middot; Bank + SIM Slot</span>
+                <span class="beat-meta-line">Zero-Friction Onboarding &middot; Bank + SIM Slot</span>
               </article>
 
               <article class="story-beat" data-story-beat="2" data-align="left">
@@ -632,7 +632,7 @@
                   parses the payee offline and drives the system <code>*99#</code> menu until your
                   bank prompts for your PIN.
                 </p>
-                <span class="beat-meta-line">QRScannerActivity.kt &middot; *99# USSD Helper</span>
+                <span class="beat-meta-line">Universal Offline Scanner &middot; *99# USSD Protocol</span>
               </article>
 
               <article class="story-beat" data-story-beat="3" data-align="right">
@@ -646,7 +646,7 @@
                   encrypted local database with Recipient, UPI ID / Phone, Amount Paid, and a
                   copyable Transaction ID.
                 </p>
-                <span class="beat-meta-line">PaymentResultActivity.kt &middot; SQLCipher AES-256</span>
+                <span class="beat-meta-line">Encrypted Settlement Receipt &middot; SQLCipher AES-256</span>
               </article>
             </div>
           </div>
@@ -829,7 +829,7 @@
               <button type="button" class="btn-secondary" id="open-terms-btn" data-open-terms>
                 Read Full Terms &amp; Disclaimer
               </button>
-              <span class="terms-contact-note">Support: <code>anshumanpati411@gmail.com</code></span>
+              <span class="terms-contact-note">Support: <code>teamsproximity@gmail.com</code></span>
             </div>
           </div>
         </div>
@@ -1120,7 +1120,7 @@
         </div>
       </section>
 
-      <!-- SECTION 5: Searchable App FAQ (16 verbatim entries from FaqActivity.kt) -->
+      <!-- SECTION 5: Searchable App FAQ -->
       <section id="faq" class="act-faq" aria-labelledby="faq-heading">
         <div class="container faq-shell">
           <div class="faq-header">
@@ -1252,13 +1252,22 @@
             </p>
           </div>
 
-          <!-- Adsterra Native Banner Slot -->
+          <!-- Adsterra Native Banner Slot (Isolated Sandbox Frame) -->
           <div class="adsterra-banner-wrapper">
             <div class="adsterra-banner-header">
               <span class="adsterra-badge">Sponsored Recommendation</span>
             </div>
             <div class="adsterra-container-host">
-              <div id="container-0b4df5b173810fed2c353725140669a7"></div>
+              <iframe
+                id="adsterra-iframe"
+                src="./ad-unit.html"
+                class="adsterra-frame"
+                title="Sponsored content"
+                loading="lazy"
+                sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+                frameborder="0"
+                scrolling="no"
+              ></iframe>
             </div>
           </div>
 
@@ -1268,8 +1277,6 @@
         </div>
       </div>
     </dialog>
-    <!-- Adsterra Native Banner Script -->
-    <script async="async" data-cfasync="false" src="https://bellnewyork.org/21/0b4df5b173810fed2c353725140669a7"></script>
 
     <!-- Early Access / Beta Waitlist Modal -->
     <dialog id="waitlist-modal" class="waitlist-modal" aria-labelledby="modal-title">
@@ -1351,7 +1358,7 @@
       </div>
     </dialog>
 
-    <!-- Full Terms, Disclaimer & Privacy Policy Modal (from TermsActivity.kt + AndroidManifest.xml) -->
+    <!-- Full Terms, Disclaimer & Privacy Policy Modal -->
     <dialog id="terms-modal" class="waitlist-modal terms-modal" aria-labelledby="terms-modal-title">
       <div class="modal-card glass-panel terms-modal-card">
         <div class="modal-head">
@@ -1454,7 +1461,7 @@
             <p>
               The app codebase, UI, graphics, and branding are proprietary (&ldquo;All rights are
               reserved&rdquo;). Uninstalling the app ends usage at any time while liability and survival
-              clauses remain in effect. Contact: <code>anshumanpati411@gmail.com</code>.
+              clauses remain in effect. Contact: <code>teamsproximity@gmail.com</code>.
             </p>
           </section>
         </div>
@@ -1500,7 +1507,7 @@
               theme choice (<code>proximity-theme</code>) and optional beta request preview
               (<code>proximity-waitlist-request</code>) are saved locally in browser storage. Uninstalling
               the Android app or tapping Clear App Data in Settings erases local app records. For privacy
-              questions, email <code>anshumanpati411@gmail.com</code>.
+              questions, email <code>teamsproximity@gmail.com</code>.
             </p>
           </section>
         </div>

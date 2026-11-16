@@ -161,10 +161,49 @@ export function initScrollStages(reducedMotion: boolean): void {
       }
     }
 
-    // 4. Desktop Left <-> Right smooth glide between beats
+    // 4. Desktop Left <-> Right smooth glide between beats + Mobile 3D choreography
     if (stageInner) {
       if (!isDesktop || beatCenters.length < 2) {
         stageInner.style.setProperty('--phone-side-x', '0px');
+
+        if (storyPhone && beatCenters.length >= 2) {
+          // Mobile-specific 3D rotation & pitch choreography across beats
+          const mobileKeyframes = [
+            { ry: 0, rx: 2.5 },    // Beat 0: Home console (front & center)
+            { ry: 14, rx: 1.5 },   // Beat 1: Setup & SIM (turned 14deg to reveal bank/SIM picker)
+            { ry: -12, rx: 4.8 },  // Beat 2: Scanner (tilted forward & angled left)
+            { ry: 0, rx: 0.5 }     // Beat 3: Payment result (upright celebratory)
+          ];
+
+          let targetRy = 0;
+          let targetRx = 2.5;
+
+          if (anchorDocY <= beatCenters[0]) {
+            targetRy = mobileKeyframes[0].ry;
+            targetRx = mobileKeyframes[0].rx;
+          } else if (anchorDocY >= beatCenters[beatCenters.length - 1]) {
+            const last = mobileKeyframes[mobileKeyframes.length - 1];
+            targetRy = last.ry;
+            targetRx = last.rx;
+          } else {
+            for (let i = 0; i < beatCenters.length - 1; i++) {
+              const c0 = beatCenters[i];
+              const c1 = beatCenters[i + 1];
+              if (anchorDocY >= c0 && anchorDocY <= c1) {
+                const t = clamp((anchorDocY - c0) / Math.max(1, c1 - c0), 0, 1);
+                const smoothT = 0.5 - 0.5 * Math.cos(Math.PI * t);
+                const k0 = mobileKeyframes[i] ?? mobileKeyframes[0];
+                const k1 = mobileKeyframes[i + 1] ?? k0;
+                targetRy = k0.ry + (k1.ry - k0.ry) * smoothT;
+                targetRx = k0.rx + (k1.rx - k0.rx) * smoothT;
+                break;
+              }
+            }
+          }
+
+          storyPhone.style.setProperty('--orbit-ry', `${targetRy.toFixed(2)}deg`);
+          storyPhone.style.setProperty('--orbit-rx', `${targetRx.toFixed(2)}deg`);
+        }
       } else {
         const stageW = zigzagStage?.clientWidth ?? Math.min(1132, vw - 48);
         const sideOffset = clamp(stageW * 0.24, 195, 268);
