@@ -9,5 +9,5 @@
 ## 2. Single Continuous Scroll Architecture
 - Zero horizontal scroll-jacking and zero full-screen pin locks.
 - **Unified Story Flow (`#flow`)**: ONE sticky Android device frame (`#story-phone`, clean Hero opening with zero orbiting emblem) travels naturally beside vertically stacked narrative beats as you scroll down (`Setup` -> `MainScreen` -> `QRScanner` -> `PaymentResult`), with `Rim` / `Rupee ₹` depth planes separating subtly mid-flow.
-- **Tactile Liquid-Glass Pill Playground + Three Relatable Fallback Rails (`#rails`)**: A draggable/flickable clone of `FloatingBottomNavBar.kt` (`DampedDragAnimation` velocity stretch & spring snap) placed directly on the canvas above three relatable visual schematics (real Proximity vector icons + Voice IVR call prompts, Merchant QR + `*99#`, Zero-Data Cellular Walled Garden).
+- **Tactile Liquid-Glass Pill Playground + Three Relatable Fallback Rails (`#rails`)**: A draggable/flickable clone of `FloatingBottomNavBar.kt` (`DampedDragAnimation` velocity stretch & spring snap) placed directly on the canvas above three relatable visual schematics (real Proximity vector icons + Voice IVR call prompts, Merchant QR + `*99#`, Zero-Data Expired Plan Recharge).
 - **Security & Carrier Matrix (`#security`)**, **Searchable 16-Item FAQ (`#faq`)**, **Climax Close (`#climax` with live `splash_logo.json`)**, and **Waitlist Dialog**.

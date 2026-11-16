@@ -38,12 +38,12 @@ export const RAIL_SPECS: RailSpec[] = [
   },
   {
     id: 2,
-    label: 'Walled Garden',
-    eyebrow: '03 \u00b7 ZERO-BALANCE DETECTOR \u00b7 HTTP 204 PROBE',
-    title: 'Cellular Walled Garden',
+    label: 'Recharge',
+    eyebrow: '03 · EXPIRED PLAN RECHARGE · ZERO-BALANCE ACCESS',
+    title: 'Offline Plan Recharge',
     description:
-      'Binds directly to TRANSPORT_CELLULAR and probes HTTP 204 connectivity checks to spot carrier-whitelisted recharge portals, letting you buy mobile packs even with zero data balance.',
-    spec: 'generate_204 \u00b7 Cellular Transport Only',
+      'Recharge your mobile plan even after it has expired and you have zero data balance. Proximity accesses carrier-whitelisted recharge channels directly over cellular, letting you choose a pack and restore your connection instantly.',
+    spec: 'Airtel · Jio · Vi · BSNL · Expired Plan Recovery',
     iconSvg:
       '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 15V17.8C17 19.9 15.9 21 13.8 21H8.2C6.1 21 5 19.9 5 17.8V5.6C5 3.8 5.8 3 7.6 3H11M10 18H12"></path><path d="M14 4H19M14 6.5H19M16.5 6.5C18 6.5 18 10 14.8 10L18.5 13" stroke-width="1.8"></path></svg>'
   }
@@ -58,7 +58,12 @@ export const FAQ_ENTRIES: FaqEntry[] = [
   {
     question: 'Does Proximity work without the internet?',
     answer:
-      'Yes. Proximity works without mobile data. However, your phone still needs a network signal and an active recharge plan, because the payment is routed through a voice call or a USSD code (a short code dialled on your phone).'
+      'Yes. Proximity works without mobile data. For UPI payments, your phone uses a cellular signal to route transactions through an official voice call or USSD code. If your recharge plan has expired, you can use the Recharge feature to recharge your plan even with zero data balance.'
+  },
+  {
+    question: 'Can I recharge my mobile plan after it has expired?',
+    answer:
+      'Yes! Proximity includes a dedicated Recharge feature specifically for when your data plan has expired and your balance is zero. It connects directly over cellular channels to carrier recharge portals so you can renew your plan and get back online immediately.'
   },
   {
     question: 'What is UPI123Pay?',
