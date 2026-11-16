@@ -533,6 +533,13 @@ main,
     border-radius 280ms var(--ease-out);
 }
 
+@media (max-width: 640px) {
+  .animated-button {
+    padding: 13px 30px;
+    font-size: 0.92rem;
+  }
+}
+
 .animated-button.animated-secondary {
   --anim-fg: var(--ink);
   --anim-ring: var(--ink);
