@@ -299,44 +299,49 @@ export async function initPhone3d(): Promise<void> {
     renderer.render(scene, camera);
   };
 
-  // Drag-to-spin interaction (supports full 360 rear camera inspection)
-  mount.addEventListener('pointerdown', (e) => {
-    if (reducedMotion || e.button !== 0) return;
-    e.preventDefault();
-    isDragging = true;
-    activePointerId = e.pointerId;
-    lastPointerX = e.clientX;
-    lastPointerY = e.clientY;
-    mount.setPointerCapture(e.pointerId);
-    mount.classList.add('is-dragging');
-    if (dragHint) dragHint.classList.add('is-used');
-  });
+  // Drag-to-spin interaction: strictly reserved for desktop mouse pointers.
+  // Touch screens must NEVER intercept or call preventDefault() on pointerdown, preserving native scrolling.
+  const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  mount.addEventListener('pointermove', (e) => {
-    if (!isDragging || e.pointerId !== activePointerId) return;
-    const dx = e.clientX - lastPointerX;
-    const dy = e.clientY - lastPointerY;
-    lastPointerX = e.clientX;
-    lastPointerY = e.clientY;
-    dragYaw += dx * 0.0115;
-    dragPitch = THREE.MathUtils.clamp(dragPitch + dy * 0.0065, -0.7, 0.7);
-  });
+  if (isFinePointer) {
+    mount.addEventListener('pointerdown', (e) => {
+      if (reducedMotion || e.button !== 0 || e.pointerType !== 'mouse') return;
+      e.preventDefault();
+      isDragging = true;
+      activePointerId = e.pointerId;
+      lastPointerX = e.clientX;
+      lastPointerY = e.clientY;
+      mount.setPointerCapture(e.pointerId);
+      mount.classList.add('is-dragging');
+      if (dragHint) dragHint.classList.add('is-used');
+    });
 
-  const endDrag = (e: PointerEvent) => {
-    if (!isDragging || e.pointerId !== activePointerId) return;
-    isDragging = false;
-    activePointerId = null;
-    releaseReturnAt = performance.now() + 950;
-    mount.classList.remove('is-dragging');
-    try {
-      mount.releasePointerCapture(e.pointerId);
-    } catch {
-      // Ignore if capture was already released
-    }
-  };
+    mount.addEventListener('pointermove', (e) => {
+      if (!isDragging || e.pointerId !== activePointerId) return;
+      const dx = e.clientX - lastPointerX;
+      const dy = e.clientY - lastPointerY;
+      lastPointerX = e.clientX;
+      lastPointerY = e.clientY;
+      dragYaw += dx * 0.0115;
+      dragPitch = THREE.MathUtils.clamp(dragPitch + dy * 0.0065, -0.7, 0.7);
+    });
 
-  mount.addEventListener('pointerup', endDrag);
-  mount.addEventListener('pointercancel', endDrag);
+    const endDrag = (e: PointerEvent) => {
+      if (!isDragging || e.pointerId !== activePointerId) return;
+      isDragging = false;
+      activePointerId = null;
+      releaseReturnAt = performance.now() + 950;
+      mount.classList.remove('is-dragging');
+      try {
+        mount.releasePointerCapture(e.pointerId);
+      } catch {
+        // Ignore if capture was already released
+      }
+    };
+
+    mount.addEventListener('pointerup', endDrag);
+    mount.addEventListener('pointercancel', endDrag);
+  }
 
   // Paint first frame before crossfading out the 2D CSS fallback chassis
   renderFrame(performance.now());

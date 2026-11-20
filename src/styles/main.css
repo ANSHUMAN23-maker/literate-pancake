@@ -142,8 +142,7 @@ main,
 
 @media (max-width: 960px) {
   .cover-stage {
-    min-height: 72vh;
-    padding: 24px 16px;
+    display: none !important;
   }
 }
 
@@ -1039,8 +1038,8 @@ main,
 
   .phone-sticky-rail {
     position: sticky;
-    top: 56px;
-    height: 350px;
+    top: 52px;
+    height: 280px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1049,8 +1048,8 @@ main,
   }
 
   .phone-stage-inner {
-    pointer-events: auto;
-    transform: scale(0.56) translate3d(0, -16px, 0) !important;
+    pointer-events: none;
+    transform: scale(0.48) translate3d(0, -18px, 0) !important;
     transform-origin: top center;
     filter: drop-shadow(0 20px 32px rgba(0, 0, 0, 0.28));
   }
@@ -1058,9 +1057,11 @@ main,
   .story-beats {
     position: relative;
     z-index: 5;
-    gap: 320px;
-    padding: 380px 0 160px;
+    gap: 100px;
+    padding: 290px 16px 80px;
     pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 200px, rgba(0, 0, 0, 0.4) 245px, black 285px);
+    mask-image: linear-gradient(to bottom, transparent 0, transparent 200px, rgba(0, 0, 0, 0.4) 245px, black 285px);
   }
 
   .story-beat {
@@ -1073,7 +1074,7 @@ main,
     box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.18);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    opacity: 0.25;
+    opacity: 0.35;
     transform: translate3d(0, 16px, 0) scale(0.96);
     transition:
       opacity 280ms var(--ease-out),
@@ -1099,17 +1100,24 @@ main,
 }
 
 @media (max-width: 480px) {
+  .phone-sticky-rail {
+    top: 48px;
+    height: 265px;
+  }
+
   .phone-stage-inner {
-    transform: scale(0.52) translate3d(0, -18px, 0) !important;
+    transform: scale(0.45) translate3d(0, -20px, 0) !important;
   }
 
   .story-beats {
-    gap: 280px;
-    padding: 340px 0 140px;
+    gap: 80px;
+    padding: 270px 12px 60px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 180px, rgba(0, 0, 0, 0.4) 225px, black 265px);
+    mask-image: linear-gradient(to bottom, transparent 0, transparent 180px, rgba(0, 0, 0, 0.4) 225px, black 265px);
   }
 
   .story-beat {
-    padding: 18px 20px;
+    padding: 16px 18px;
     border-radius: 18px;
   }
 }
@@ -2501,7 +2509,7 @@ main,
   border: 0;
   background-color: transparent;
   color: var(--ink);
-  font-size: 0.9rem;
+  font-size: 1rem;
   outline: none;
 }
 
@@ -3152,7 +3160,7 @@ main,
   padding: 26px;
 }
 
-/* Action Ad Modal (Download & GitHub Trigger) */
+/* Action Ad Modal (Download, GitHub & Instagram Trigger) */
 .action-ad-modal {
   max-width: 620px;
   width: min(620px, calc(100vw - 32px));
@@ -3163,8 +3171,14 @@ main,
 }
 
 @media (max-width: 480px) {
+  .action-ad-modal {
+    width: calc(100vw - 20px);
+    margin: auto 10px;
+  }
+
   .action-ad-card {
-    padding: 18px 16px;
+    padding: 16px 14px;
+    border-radius: 20px;
   }
 }
 
@@ -3249,6 +3263,21 @@ main,
   color: var(--ink-faint);
 }
 
+.adsterra-swipe-hint {
+  display: none;
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  color: var(--teal);
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+@media (max-width: 580px) {
+  .adsterra-swipe-hint {
+    display: inline-block;
+  }
+}
+
 .adsterra-container-host {
   min-height: 120px;
   padding: 8px;
@@ -3266,13 +3295,19 @@ main,
 
 .adsterra-frame {
   width: 100%;
-  min-height: 120px;
+  min-height: 125px;
   height: 140px;
   border: 0;
   display: block;
   background-color: transparent;
   overflow: hidden;
   border-radius: 8px;
+}
+
+@media (max-width: 480px) {
+  .adsterra-frame {
+    height: 145px;
+  }
 }
 
 [data-theme="dark"] .adsterra-frame {
@@ -3604,6 +3639,32 @@ main,
   .app-screen-shell {
     width: 278px;
     height: 562px;
+  }
+
+  .hero-actions,
+  .climax-actions {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .hero-actions .btn,
+  .climax-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: 10px;
   }
 }
 
