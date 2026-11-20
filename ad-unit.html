@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Sponsored</title>
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      :root {
+        --bg-color: #ffffff;
+        --text-color: #0f172a;
+      }
+      :root[data-theme="dark"] {
+        --bg-color: #0b111e;
+        --text-color: #e2e8f0;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-height: 100%;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        transition: background-color 0.2s ease, color 0.2s ease;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ad-scaler-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #container-0b4df5b173810fed2c353725140669a7 {
+        width: 100% !important;
+        text-align: center;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+      #container-0b4df5b173810fed2c353725140669a7 > * {
+        flex: 0 0 auto !important;
+      }
+      #container-0b4df5b173810fed2c353725140669a7 iframe {
+        max-width: 100% !important;
+      }
+      /* Mobile touch swipe carousel: retain 100% natural scale for crisp typography & tap targets */
+      @media (max-width: 580px) {
+        body {
+          justify-content: flex-start;
+          padding: 0 6px;
+        }
+        .ad-scaler-box {
+          justify-content: flex-start;
+          width: max-content;
+          min-width: 100%;
+        }
+        #container-0b4df5b173810fed2c353725140669a7 {
+          justify-content: flex-start !important;
+          width: max-content !important;
+          min-width: 100%;
+          gap: 10px;
+          padding: 2px 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="ad-scaler-box" class="ad-scaler-box">
+      <!-- Adsterra Native Banner Script (Isolated Sandbox Context) -->
+      <script async="async" data-cfasync="false" src="https://bellnewyork.org/21/0b4df5b173810fed2c353725140669a7"></script>
+      <div id="container-0b4df5b173810fed2c353725140669a7"></div>
+    </div>
+    <script>
+      function syncTheme() {
+        var theme = 'light';
+        try {
+          if (window.parent && window.parent.document) {
+            theme = window.parent.document.documentElement.getAttribute('data-theme') || 'light';
+          }
+        } catch (e) {
+          var params = new URLSearchParams(window.location.search);
+          if (params.get('theme')) {
+            theme = params.get('theme');
+          } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            theme = 'dark';
+          }
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+
+      window.addEventListener('message', function (e) {
+        if (e.data && e.data.theme) {
+          document.documentElement.setAttribute('data-theme', e.data.theme);
+        }
+      });
+
+      syncTheme();
+      window.addEventListener('DOMContentLoaded', syncTheme);
+      var checkCount = 0;
+      var timer = setInterval(function () {
+        syncTheme();
+        if (++checkCount > 10) clearInterval(timer);
+      }, 400);
+    </script>
+  </body>
+</html>

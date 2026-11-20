@@ -135,9 +135,9 @@
         }
       </style>
     </noscript>
-    <script type="module" crossorigin src="/literate-pancake/assets/main-A0lCENJO.js"></script>
-    <link rel="modulepreload" crossorigin href="/literate-pancake/assets/micro-interactions-CuCozSSZ.js">
-    <link rel="stylesheet" crossorigin href="/literate-pancake/assets/micro-interactions-CVC2vSPa.css">
+    <script type="module" crossorigin src="/literate-pancake/assets/main-Bv_FNpm9.js"></script>
+    <link rel="modulepreload" crossorigin href="/literate-pancake/assets/micro-interactions-DW3EqmjD.js">
+    <link rel="stylesheet" crossorigin href="/literate-pancake/assets/micro-interactions-CxFwPMRR.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -243,6 +243,7 @@
             class="nav-cta"
             download="proximity.apk"
             aria-label="Download Proximity APK"
+            data-trigger-ad="download"
           >
             Download APK
           </a>
@@ -292,6 +293,7 @@
               class="animated-button animated-primary"
               download="proximity.apk"
               aria-label="Download Proximity APK"
+              data-trigger-ad="download"
             >
               <svg viewBox="0 0 24 24" class="arr-2" aria-hidden="true">
                 <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.7781L10.8076 18.3639L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -308,11 +310,30 @@
               target="_blank"
               rel="noopener noreferrer"
               class="animated-button animated-secondary"
+              data-trigger-ad="github"
             >
               <svg viewBox="0 0 24 24" class="arr-2" aria-hidden="true">
                 <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.7781L10.8076 18.3639L16.1716 12.9999H4V10.9999H16.1716Z"></path>
               </svg>
               <span class="text">View on GitHub</span>
+              <span class="circle" aria-hidden="true"></span>
+              <svg viewBox="0 0 24 24" class="arr-1" aria-hidden="true">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.7781L10.8076 18.3639L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+            </a>
+
+            <a
+              href="https://instagram.com/teamsproximity"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="animated-button animated-secondary"
+              aria-label="Follow Proximity on Instagram"
+              data-trigger-ad="instagram"
+            >
+              <svg viewBox="0 0 24 24" class="arr-2" aria-hidden="true">
+                <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.7781L10.8076 18.3639L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+              </svg>
+              <span class="text">Instagram</span>
               <span class="circle" aria-hidden="true"></span>
               <svg viewBox="0 0 24 24" class="arr-1" aria-hidden="true">
                 <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.7781L10.8076 18.3639L16.1716 12.9999H4V10.9999H16.1716Z"></path>
@@ -353,7 +374,7 @@
                       </svg>
 
                       <div class="stage-screen-stack">
-                        <!-- SCREEN 0: REAL MainActivity.kt (MainScreen + GreetingCard + 3 Tiles + Rewards + FloatingBottomNavBar) -->
+                        <!-- SCREEN 0: Main Screen Console (Greeting Card + Action Tiles + Rewards + Floating Nav) -->
                         <div class="stage-screen is-active" data-screen="0">
                           <div class="app-main-scroll">
                             <div class="app-top-row">
@@ -368,7 +389,7 @@
                               </div>
                             </div>
 
-                            <!-- GreetingCard from MainActivity.kt L391-482 -->
+                            <!-- Greeting Card Surface -->
                             <div class="app-greeting-card">
                               <span class="greeting-orb" aria-hidden="true"></span>
                               <div class="greeting-bank-row">
@@ -416,7 +437,7 @@
                               </div>
                             </div>
 
-                            <!-- RewardsSectionCard from MainActivity.kt L697-745 -->
+                            <!-- Rewards Section Card -->
                             <div class="app-rewards-glass">
                               <span class="rewards-icon-badge" aria-hidden="true">
                                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -426,7 +447,7 @@
                               <span class="rewards-label">Rewards &amp; Cashback</span>
                             </div>
 
-                            <!-- FloatingBottomNavBar from FloatingBottomNavBar.kt -->
+                            <!-- Floating Bottom Navigation -->
                             <div class="app-floating-nav">
                               <div class="app-nav-puck" aria-hidden="true"></div>
                               <div class="app-nav-tab is-current">
@@ -452,7 +473,7 @@
                           </div>
                         </div>
 
-                        <!-- SCREEN 1: REAL SetupActivity (Progress line + Select your SIM) -->
+                        <!-- SCREEN 1: Setup Flow (Progress line + Select your SIM) -->
                         <div class="stage-screen" data-screen="1">
                           <div class="app-setup-wrap">
                             <div class="setup-progress-track">
@@ -501,7 +522,7 @@
                           </div>
                         </div>
 
-                        <!-- SCREEN 2: REAL QRScannerActivity (Dark Camera Scrim + Teal Laser + Flash & Gallery) -->
+                        <!-- SCREEN 2: Universal Scanner (Dark Camera Scrim + Teal Laser + Flash & Gallery) -->
                         <div class="stage-screen" data-screen="2">
                           <div class="qr-overlay-screen">
                             <div class="qr-top-bar">
@@ -542,7 +563,7 @@
                           </div>
                         </div>
 
-                        <!-- SCREEN 3: REAL PaymentResultActivity (Solid Check + Payment Successful + ₹48 + Receipt Surface) -->
+                        <!-- SCREEN 3: Settlement Receipt (Solid Check + Payment Successful + ₹48 + Receipt Surface) -->
                         <div class="stage-screen" data-screen="3">
                           <div class="app-result-screen">
                             <div class="result-circle-check" aria-hidden="true">
@@ -605,7 +626,7 @@
                   Your bank greeting card sits over three Liquid-Glass action tiles (Scan QR, Pay
                   Contact, Recharge), Rewards &amp; Cashback, and a draggable bottom pill bar.
                 </p>
-                <span class="beat-meta-line">MainActivity.kt &middot; FloatingBottomNavBar</span>
+                <span class="beat-meta-line">Offline Command Console &middot; Floating Navigation</span>
               </article>
 
               <article class="story-beat" data-story-beat="1" data-align="right">
@@ -618,7 +639,7 @@
                   Pick your UPI-linked bank and active SIM slot in Setup. Proximity never asks
                   for IFSC codes, full account numbers, or wallet top-ups before activating rails.
                 </p>
-                <span class="beat-meta-line">SetupActivity.kt &middot; Bank + SIM Slot</span>
+                <span class="beat-meta-line">Zero-Friction Onboarding &middot; Bank + SIM Slot</span>
               </article>
 
               <article class="story-beat" data-story-beat="2" data-align="left">
@@ -632,7 +653,7 @@
                   parses the payee offline and drives the system <code>*99#</code> menu until your
                   bank prompts for your PIN.
                 </p>
-                <span class="beat-meta-line">QRScannerActivity.kt &middot; *99# USSD Helper</span>
+                <span class="beat-meta-line">Universal Offline Scanner &middot; *99# USSD Protocol</span>
               </article>
 
               <article class="story-beat" data-story-beat="3" data-align="right">
@@ -646,7 +667,7 @@
                   encrypted local database with Recipient, UPI ID / Phone, Amount Paid, and a
                   copyable Transaction ID.
                 </p>
-                <span class="beat-meta-line">PaymentResultActivity.kt &middot; SQLCipher AES-256</span>
+                <span class="beat-meta-line">Encrypted Settlement Receipt &middot; SQLCipher AES-256</span>
               </article>
             </div>
           </div>
@@ -714,7 +735,7 @@
                   <path d="M17 15V17.8C17 19.9 15.9 21 13.8 21H8.2C6.1 21 5 19.9 5 17.8V5.6C5 3.8 5.8 3 7.6 3H11M10 18H12"></path>
                   <path d="M14 4H19M14 6.5H19M16.5 6.5C18 6.5 18 10 14.8 10L18.5 13" stroke-width="1.8"></path>
                 </svg>
-                <span>Walled Garden</span>
+                <span>Recharge</span>
               </button>
             </div>
             <p class="dock-hint">Grab, slide, or click to inspect each rail</p>
@@ -790,7 +811,7 @@
             <div class="terms-callout">
               <strong>Non-Custodial Interface (Provided &ldquo;As Is&rdquo;):</strong>
               Proximity operates strictly as a payment aggregator interface across <code>*99#</code> USSD,
-              UPI 123Pay, and Walled Garden. All transactions are authorized and settled solely by NPCI,
+              UPI 123Pay, and carrier plan recharge portals. All transactions are authorized and settled solely by NPCI,
               your bank, and your telecom operator without uptime warranties or fund custody.
             </div>
 
@@ -829,7 +850,7 @@
               <button type="button" class="btn-secondary" id="open-terms-btn" data-open-terms>
                 Read Full Terms &amp; Disclaimer
               </button>
-              <span class="terms-contact-note">Support: <code>anshumanpati411@gmail.com</code></span>
+              <span class="terms-contact-note">Support: <code>teamsproximity@gmail.com</code></span>
             </div>
           </div>
         </div>
@@ -1120,7 +1141,7 @@
         </div>
       </section>
 
-      <!-- SECTION 5: Searchable App FAQ (16 verbatim entries from FaqActivity.kt) -->
+      <!-- SECTION 5: Searchable App FAQ -->
       <section id="faq" class="act-faq" aria-labelledby="faq-heading">
         <div class="container faq-shell">
           <div class="faq-header">
@@ -1183,6 +1204,7 @@
               class="btn-primary"
               download="proximity.apk"
               aria-label="Download Proximity APK"
+              data-trigger-ad="download"
             >
               Download APK
             </a>
@@ -1191,8 +1213,19 @@
               target="_blank"
               rel="noopener noreferrer"
               class="btn-secondary"
+              data-trigger-ad="github"
             >
               View on GitHub
+            </a>
+            <a
+              href="https://instagram.com/teamsproximity"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-secondary"
+              aria-label="Follow Proximity on Instagram"
+              data-trigger-ad="instagram"
+            >
+              Instagram
             </a>
           </div>
         </div>
@@ -1209,12 +1242,76 @@
           <a href="#security">Ground Rules &amp; Terms</a>
           <button type="button" class="footer-legal-btn" data-open-privacy>Privacy Policy</button>
           <a href="#faq">FAQ</a>
-          <a href="https://github.com/ANSHUMAN23-maker/proximity" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/ANSHUMAN23-maker/proximity" target="_blank" rel="noopener noreferrer" data-trigger-ad="github">
             GitHub
+          </a>
+          <a href="https://instagram.com/teamsproximity" target="_blank" rel="noopener noreferrer" data-trigger-ad="instagram">
+            Instagram
           </a>
         </div>
       </div>
     </footer>
+
+    <!-- Action Ad Modal (Sponsored Download & GitHub Preview) -->
+    <dialog id="action-ad-modal" class="waitlist-modal action-ad-modal" aria-labelledby="action-ad-title">
+      <div class="modal-card glass-panel action-ad-card">
+        <div class="modal-head">
+          <div class="modal-title-group">
+            <div class="action-ad-icon-wrap" id="action-ad-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <div>
+              <h3 id="action-ad-title">Downloading Proximity APK</h3>
+              <p class="modal-sub" id="action-ad-subtitle">Build v1.0.0 &middot; 15.3 MB &middot; Android 10+</p>
+            </div>
+          </div>
+          <button type="button" class="modal-close" id="action-ad-close" aria-label="Close dialog">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="action-ad-body">
+          <div class="action-ad-status-box" id="action-ad-status">
+            <p id="action-ad-message">
+              Your download has started! Check your browser's download manager.
+            </p>
+            <p class="action-ad-fallback">
+              Did not start? <a href="https://github.com/ANSHUMAN23-maker/proximity/raw/main/proximity.apk" download="proximity.apk" id="action-ad-fallback-link">Click here to download directly</a>.
+            </p>
+          </div>
+
+          <!-- Adsterra Native Banner Slot (Isolated Sandbox Frame) -->
+          <div class="adsterra-banner-wrapper">
+            <div class="adsterra-banner-header">
+              <span class="adsterra-badge">Sponsored Recommendation</span>
+              <span class="adsterra-swipe-hint" aria-hidden="true">Swipe &rarr;</span>
+            </div>
+            <div class="adsterra-container-host">
+              <iframe
+                id="adsterra-iframe"
+                src="./ad-unit.html"
+                class="adsterra-frame"
+                title="Sponsored content"
+                loading="lazy"
+                sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+                frameborder="0"
+                scrolling="auto"
+              ></iframe>
+            </div>
+          </div>
+
+          <div class="modal-success-actions">
+            <button type="button" class="btn-primary action-ad-done" id="action-ad-done">Done</button>
+          </div>
+        </div>
+      </div>
+    </dialog>
 
     <!-- Early Access / Beta Waitlist Modal -->
     <dialog id="waitlist-modal" class="waitlist-modal" aria-labelledby="modal-title">
@@ -1296,7 +1393,7 @@
       </div>
     </dialog>
 
-    <!-- Full Terms, Disclaimer & Privacy Policy Modal (from TermsActivity.kt + AndroidManifest.xml) -->
+    <!-- Full Terms, Disclaimer & Privacy Policy Modal -->
     <dialog id="terms-modal" class="waitlist-modal terms-modal" aria-labelledby="terms-modal-title">
       <div class="modal-card glass-panel terms-modal-card">
         <div class="modal-head">
@@ -1342,10 +1439,10 @@
             <p>
               Proximity is not a bank, wallet, NBFC, or payment processor, and it never holds, pools,
               moves, or has access to your funds. All Proximity does is initiate official
-              <code>*99#</code> USSD menus, UPI 123Pay IVR calls, and ISP-whitelisted Walled Garden
-              recharge views. Every transaction is authorized and settled directly by you, your bank,
+              <code>*99#</code> USSD menus, UPI 123Pay IVR calls, and carrier recharge
+              views so you can recharge your plan even after it has expired. Every transaction is authorized and settled directly by you, your bank,
               NPCI, and your telecom operator. Proximity is not affiliated with or endorsed by NPCI, RBI,
-              any bank, any carrier, or Walled Garden.
+              any bank, or any carrier.
             </p>
           </section>
 
@@ -1399,7 +1496,7 @@
             <p>
               The app codebase, UI, graphics, and branding are proprietary (&ldquo;All rights are
               reserved&rdquo;). Uninstalling the app ends usage at any time while liability and survival
-              clauses remain in effect. Contact: <code>anshumanpati411@gmail.com</code>.
+              clauses remain in effect. Contact: <code>teamsproximity@gmail.com</code>.
             </p>
           </section>
         </div>
@@ -1445,7 +1542,7 @@
               theme choice (<code>proximity-theme</code>) and optional beta request preview
               (<code>proximity-waitlist-request</code>) are saved locally in browser storage. Uninstalling
               the Android app or tapping Clear App Data in Settings erases local app records. For privacy
-              questions, email <code>anshumanpati411@gmail.com</code>.
+              questions, email <code>teamsproximity@gmail.com</code>.
             </p>
           </section>
         </div>
